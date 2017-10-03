@@ -1,18 +1,32 @@
 <?php
-// fonction qui prend en paramètre un tableau et qui retourne une chaîne avec la fusion de toutes les lignes du tableau.
-function fusion($Tabl){
-  //Rassemble les éléments d'un tableau en une chaîne
-    return implode($Tabl);
+//déclaration du tableau $language
+$language = array("HTML","CSS","Javascript","PHP");
+//déclaration de la fonction alphabetic() qui permet de trier $language par ordre alphabétique
+function alphabetic($code){
+  //vérification que le paramètre est bien un tableau
+  if(is_array($code)==true){
+    //tri du tableau
+    sort($code);
+  }
+  return $code;
 }
-//fonction qui prend un tableau en paramètre et qui retourne un tableau trié par ordre alphabétique.
-function trieAlpha($Tabl){
-  // Trie un tableau
-  sort($Tabl);
-  return $Tabl;
+echo '<br/>Le tableau langage trié :<br/>';
+//on appelle la fonction alphabetic() et on stocke le résultat dans le tableau $sortedArray
+$sortedArray = alphabetic($language);
+//on parcours le tableau avec la boucle foreach pour afficher son contenu
+foreach($sortedArray as $value){
+echo $value . '<br/>';
 }
-// init du tableau langage
-$langage = array("HTML","CSS","Javascript","PHP");
-// Appels les fonctions
-print_r(trieAlpha($langage));
-echo fusion($langage);
+
+//déclaration de la fonction concat() qui permet de renvoyer le contenu d'un tableau concaténé
+function concat($code){
+  //vérification que le paramètre est bien un tableau
+  if(is_array($code)==true){
+    //Rassemble les éléments du tableau dans la chaîne $string
+    $string = implode(' ', $code);
+}
+  return $string;
+}
+echo '<br/>Le tableau langage concaténé :<br/>';
+echo concat($language);
 ?>
